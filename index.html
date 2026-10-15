@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Third Order</title>
+<meta name="description" content="Third Order is an early-stage startup building automation software — starting with logistics load matching in Turkey and AI-driven short-form video for social media.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F6F3EE; --surface:#FFFFFF; --ink:#16130F; --muted:#5E574E; --line:#E3DDD3;
+  --accent:#E8613C; --accent-ink:#B8431F; --chip:#F1E7DD;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#121110; --surface:#1B1917; --ink:#F2EEE8; --muted:#A79F94; --line:#2E2A26;
+    --accent:#F07850; --accent-ink:#F59A78; --chip:#2A221D;
+  }
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font:400 17px/1.6 Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+h1,h2,h3{font-family:"Space Grotesk",Inter,sans-serif;letter-spacing:-.02em;line-height:1.1}
+
+/* nav */
+nav{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--bg) 85%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+.brand{display:flex;align-items:center;gap:10px;font:700 18px "Space Grotesk",sans-serif;text-decoration:none}
+.brand img{width:28px;height:28px}
+nav ul{display:flex;gap:28px;list-style:none;font-size:15px}
+nav ul a{text-decoration:none;color:var(--muted)}
+nav ul a:hover{color:var(--ink)}
+
+/* hero */
+.hero{padding:112px 0 96px}
+.eyebrow{display:inline-block;font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--accent-ink);margin-bottom:24px}
+.hero h1{font-size:clamp(40px,7vw,76px);font-weight:700;max-width:14ch}
+.hero h1 em{font-style:normal;color:var(--accent)}
+.hero p{margin-top:28px;font-size:20px;color:var(--muted);max-width:56ch}
+.cta{display:flex;gap:12px;margin-top:40px;flex-wrap:wrap}
+.btn{display:inline-block;padding:13px 22px;border-radius:999px;font-weight:600;font-size:15px;text-decoration:none;border:1.5px solid var(--ink)}
+.btn.primary{background:var(--ink);color:var(--bg)}
+.btn:hover{opacity:.85}
+
+section{padding:88px 0;border-top:1px solid var(--line)}
+.label{font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:14px}
+section h2{font-size:clamp(30px,4.4vw,44px);max-width:22ch}
+.lede{margin-top:16px;color:var(--muted);max-width:62ch}
+
+/* products */
+.products{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:48px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:32px;display:flex;flex-direction:column}
+.status{align-self:flex-start;font-size:12px;font-weight:600;padding:5px 10px;border-radius:999px;background:var(--chip);color:var(--accent-ink);margin-bottom:20px}
+.card h3{font-size:26px}
+.card .tag{color:var(--muted);margin-top:6px;font-size:15px}
+.card p{margin-top:18px}
+.card ul{margin-top:18px;list-style:none;display:grid;gap:10px;font-size:15px}
+.card li{padding-left:22px;position:relative;color:var(--muted)}
+.card li::before{content:"";position:absolute;left:0;top:.6em;width:10px;height:2px;background:var(--accent)}
+
+/* claude */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:48px}
+.step{border-top:2px solid var(--ink);padding-top:20px}
+.step .n{font:700 14px "Space Grotesk",sans-serif;color:var(--accent-ink)}
+.step h3{font-size:21px;margin:8px 0 10px}
+.step p{color:var(--muted);font-size:15px}
+
+/* team */
+.team{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:48px}
+.person{display:flex;align-items:center;gap:18px;background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:24px}
+.avatar{flex:none;width:56px;height:56px;border-radius:16px;background:var(--accent);color:#fff;display:grid;place-items:center;font:700 20px "Space Grotesk",sans-serif}
+.person h3{font-size:20px}
+.person span{color:var(--muted);font-size:15px}
+
+/* contact */
+.contact{text-align:left}
+.contact a.mail{display:inline-block;margin-top:28px;font:700 clamp(22px,4vw,36px) "Space Grotesk",sans-serif;color:var(--accent);text-decoration:none;border-bottom:2px solid currentColor;word-break:break-all}
+footer{padding:32px 0 48px;color:var(--muted);font-size:14px;border-top:1px solid var(--line)}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+
+@media (max-width:760px){
+  .wrap{padding:0 16px}
+  nav ul{display:none}
+  .hero{padding:72px 0 64px}
+  .hero p{font-size:18px}
+  section{padding:64px 0}
+  .products,.steps,.team{grid-template-columns:1fr}
+  .card{padding:24px}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="brand" href="#top"><img src="logo.svg" alt="">Third Order</a>
+    <ul>
+      <li><a href="#products">Products</a></li>
+      <li><a href="#claude">How we build</a></li>
+      <li><a href="#team">Team</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <span class="eyebrow">Early-stage startup · Istanbul</span>
+    <h1>We automate the <em>repetitive work</em> behind fast markets.</h1>
+    <p>Third Order builds automation software for people who spend their days doing the same thing by hand: truck owners scrolling WhatsApp groups for loads, and creators producing video after video for social media.</p>
+    <div class="cta">
+      <a class="btn primary" href="#products">See what we're building</a>
+      <a class="btn" href="#contact">Get in touch</a>
+    </div>
+  </div>
+</header>
+
+<section id="products">
+  <div class="wrap">
+    <div class="label">Products</div>
+    <h2>Two products, one idea: take the manual loop out.</h2>
+    <p class="lede">Our long-term focus is social media automation. Along the way we found a concrete, painful problem in Turkish freight logistics and started building for it too.</p>
+
+    <div class="products">
+      <article class="card">
+        <span class="status">In development · Web + Android</span>
+        <h3>Yük Pusulası</h3>
+        <div class="tag">Load matching for Turkish freight</div>
+        <p>In Turkey, freight loads are mostly posted as free-text messages in crowded WhatsApp groups. Truck owners scroll for hours; shippers repost again and again. Yük Pusulası turns that stream into a searchable, structured load board.</p>
+        <ul>
+          <li>Shippers post loads; carriers search by route, vehicle type, date and tonnage</li>
+          <li>Map view with loads sorted by distance to the carrier</li>
+          <li>A read-only WhatsApp bot that parses group messages into structured listings</li>
+          <li>Phone (SMS OTP) sign-in, Turkish-first UI, KVKK-compliant data handling</li>
+          <li>Progressive web app and a native Android app</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <span class="status">In development</span>
+        <h3>Short-form video automation</h3>
+        <div class="tag">AI-generated content for social media</div>
+        <p>Posting consistently on short-form platforms means writing, recording and editing every single day. We're building a tool that generates ready-to-post short videos from a topic, so creators and small brands can keep a channel running without a production team.</p>
+        <ul>
+          <li>Topic in, finished short-form video out</li>
+          <li>Built for consistent, high-volume posting</li>
+          <li>First step toward our broader social media automation platform</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="claude">
+  <div class="wrap">
+    <div class="label">How we build</div>
+    <h2>A two-person team that ships like a bigger one, with Claude.</h2>
+    <p class="lede">Claude is part of our development process. We use Claude Code to write, test and review the code for both products, which lets two founders cover web, mobile, database and bot work at the same time.</p>
+
+    <div class="steps">
+      <div class="step">
+        <div class="n">01</div>
+        <h3>Spec and plan</h3>
+        <p>We write specs and architecture decisions in the repo and work through them with Claude before any code is written.</p>
+      </div>
+      <div class="step">
+        <div class="n">02</div>
+        <h3>Build and test</h3>
+        <p>Claude Code implements features across our Next.js web app, Android app, Postgres migrations and WhatsApp bot, with tests alongside.</p>
+      </div>
+      <div class="step">
+        <div class="n">03</div>
+        <h3>Review and ship</h3>
+        <p>Every change goes through lint, type checks and tests, plus a review pass, before it reaches our users.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="team">
+  <div class="wrap">
+    <div class="label">Team</div>
+    <h2>Founders</h2>
+    <div class="team">
+      <div class="person">
+        <div class="avatar">AD</div>
+        <div><h3>Andaç Demirdelen</h3><span>Co-founder</span></div>
+      </div>
+      <div class="person">
+        <div class="avatar">AT</div>
+        <div><h3>Ahmet Ensar Topal</h3><span>Co-founder</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="wrap">
+    <div class="label">Contact</div>
+    <h2>Let's talk.</h2>
+    <p class="lede">Investors, partners, early users: we'd love to hear from you.</p>
+    <a class="mail" href="mailto:andac.demirdelen@std.yildiz.edu.tr">andac.demirdelen@std.yildiz.edu.tr</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Third Order</span>
+    <span>Istanbul, Türkiye</span>
+  </div>
+</footer>
+
+</body>
+</html>
